@@ -165,6 +165,7 @@ while True:
 
                 # Detect head tilt
         tilt_angle = head_tilt_angle(shape)
+        \
 
         # If the head is tilting down past the threshold
         if tilt_angle > ALERT_TILT_ANGLE:  # This means head is tilting down (past the threshold)

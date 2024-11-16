@@ -165,6 +165,7 @@ while True:
 
                 # Detect head tilt
         tilt_angle = head_tilt_angle(shape)
+        print(f"Detected head tilt angle: {tilt_angle}")  # Debugging the tilt angle
 
         # If the head is tilting down past the threshold
         if tilt_angle > ALERT_TILT_ANGLE:  # This means head is tilting down (past the threshold)
