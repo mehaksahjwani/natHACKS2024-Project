@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import time
 from brainflow.data_filter import WindowOperations
 from datetime import datetime
-from routes import WhileTrue, concentrationCall, fatigueCall
+from circular import concentrationCall, fatigueCall
 # from database import MuseData, Session  # Import from database.py
 
 def muse():

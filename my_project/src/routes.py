@@ -6,16 +6,18 @@ import matplotlib.pyplot as plt
 from datetime import datetime, date
 import matplotlib.dates as mdates
 from circular import WhileTrue
-
+from flask_cors import CORS
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route('/start-muse-recording', methods=['GET'])
 def start_recording():
     try:
         WhileTrue = 1 
+        print(1)
         muse()
-        # return jsonify(result), 200
+        return jsonify({"message": "Muse recording started successfully"}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     
@@ -23,9 +25,9 @@ def start_recording():
 def stop_recording():
     try:
         WhileTrue = 0
-        return None
+        return jsonify({"message": "Muse recording started successfully"}), 200
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        return jsonify({"error hello": str(e)}), 500
     
 # @app.route('/concentrationSignal', methods=['GET'])
 # def concentrationSignal():

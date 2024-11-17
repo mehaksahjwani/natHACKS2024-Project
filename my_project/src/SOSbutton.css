@@ -12,24 +12,34 @@ body {
   }
   
   #sosButton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 20px;
-    background-color: #c51212;
-    border-radius: 50px;
-    color: white;
-    font-weight: bold;
-    cursor: grab;
-    user-select: none;
-    position: relative;
-    top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  background-color: #c51212;
+  border-radius: 50px;
+  color: white;
+  font-weight: bold;
+  /* cursor: text; */
+  /* user-select: none;
+  -webkit-user-select: none; For Safari compatibility */
+  position: relative;
+  top: 40px;
+  left: 90px;
   }
 
-  #sosButton:active {
-    cursor: grabbing;
+  #sosButton:active{
+    cursor: pointer;
   }
-  
+
+  body:active {
+    cursor: pointer;
+  }   
+  .toggle-icon:hover {
+    cursor: pointer;
+    opacity: 0.85;
+  }
+   
   #sosButton .text {
     margin-left: 10px;
     font-size: 16px;

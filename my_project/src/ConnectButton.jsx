@@ -28,8 +28,21 @@ const ConnectButton = ({ theme, onCameraConnect, onHistoricDataClick }) => {
     }
   };
 
-  const handleMuseConnect = () => {
-    alert("Connecting to Muse...");
+  const handleMuseConnect = async () => {
+    try {
+      const response = await fetch('http://localhost:5001/start-muse-recording', {
+        method: 'GET',
+      });
+      if (response.ok) {
+        alert("Connected to Muse and started recording.");
+      } else {
+        const errorData = await response.json();
+        alert(`Error connecting to Muse: ${errorData.error}`);
+      }
+    } catch (error) {
+      console.error("Error connecting to Muse:", error);
+      alert("Failed to connect to Muse. Please ensure the backend is running.");
+    }
   };
 
   return (
@@ -49,7 +62,7 @@ const ConnectButton = ({ theme, onCameraConnect, onHistoricDataClick }) => {
         Connect to Camera
       </button>
       <button
-        onClick={handleMuseConnect}
+        onClick={handleMuseConnect} // Trigger Muse connection
         className="button1 text-white py-4 px-8 text-xl rounded-lg 
                bg-[#134B70] hover:bg-[#283a62] w-auto"
       >

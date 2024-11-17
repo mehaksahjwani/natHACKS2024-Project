@@ -50,4 +50,3 @@ const styles = {
 };
 
 export default SOSButton;
-

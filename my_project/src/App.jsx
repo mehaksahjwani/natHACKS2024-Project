@@ -8,7 +8,7 @@ import toggle_light from './assets/day.png';
 import SOSButton from './SOSbutton.jsx';
 import Weather1 from './Weather.jsx';
 import fileContent from './alerts_log.txt?raw'
-// import Cam from './cam.jsx';
+
 
 // Navigationbar component
 function Navigationbar({ theme, setTheme }) {
