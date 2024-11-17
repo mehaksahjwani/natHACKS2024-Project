@@ -14,6 +14,7 @@ def concentrationCall():
     """
     try:
         concentrationCheck = 1
+        pygame.mixer.init()
         pygame.mixer.music.load(r"C:\Users\kumar\Downloads\natHACKS2024-Project\my_project\src\concentration_sound.wav")
         pygame.mixer.music.play()
         while pygame.mixer.music.get_busy():  # Wait for the playback to finish
