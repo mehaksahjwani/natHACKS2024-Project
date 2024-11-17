@@ -16,7 +16,7 @@ body {
 
 /* Light Mode */
 .light-mode {
-  background:  #EEEEEE; /* Radial gradient from white to light gray, and linear gradient from neutral-200 to purple-300 */
+  background:  #e0dada; /* Radial gradient from white to light gray, and linear gradient from neutral-200 to purple-300 */
   border-radius: 5px ;
   color: #333333; /* Dark text */
   transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transition */
@@ -58,7 +58,7 @@ body {
 
 .image{
   width: 1500px;
-  margin-left:150px;
+  margin-left:80px;
   margin-top:20px;
   height:750px; 
   border-radius: 15px;
