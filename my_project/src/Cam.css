@@ -21,12 +21,15 @@ div {
 }
 /* Styles for the Cam component */
 .image {
-  width: 50vh;
-  height: auto;
+  width: 250vh!important;
+  height: 350px!important;
   border: 1px solid #ccc;
   margin-bottom: 10px;
 }
-
+img, video {
+  max-width: 400%!important;
+  height: 500px!important;
+}
 .alert-box {
   top: -50px;
   left: 10%;
@@ -48,7 +51,7 @@ div {
   max-width: 800px;
   height: auto;
   display: block;
-  margin: 0 auto;
+  margin-left:50px!important;
 }
 
 .connection-error {

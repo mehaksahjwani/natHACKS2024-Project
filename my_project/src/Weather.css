@@ -69,7 +69,7 @@
 .greeting-message {
     position: relative;
     bottom: 600px;
-    left: 700px;
+    left: 600px;
     font-family: "Poppins", sans-serif;
     font-size: 2.3em;
     margin-top: 10px;
@@ -77,9 +77,8 @@
 }
 
 .greeting-message.light-theme {
-  color: #333;
+  color: #333!important;
 }
-
 .greeting-message.dark-theme {
   color: white;
 }

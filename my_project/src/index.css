@@ -55,3 +55,11 @@ body {
   background: #ebfffc;
   font-size: 20px;
 }
+
+.image{
+  width: 1500px;
+  margin-left:150px;
+  margin-top:20px;
+  height:750px; 
+  border-radius: 15px;
+}

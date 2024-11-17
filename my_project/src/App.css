@@ -79,9 +79,9 @@
 }
 
 .popup-content {
-  width: 80%;
-  height: 80%;
-  background-color: white;
+  width: 90%;
+  height: 90%;
+  background-color: #f1f1e7;
   border-radius: 8px;
   padding: 20px;
   position: relative;
@@ -105,7 +105,9 @@
   background-color: #134B70;
   gap: 10px;
   color: white;
+  position:relative;
   top: 10px;
+  left:145px;
   width:400px;
   height: 120px;
   align-items: center;
@@ -118,10 +120,28 @@
   background-color: #283a62; /* Darker shade for hover effect */
   opacity: 0.85;
 }
-
+.button1.light-mode{
+  background-color: #508c98;
+}
+.logo{
+  border-radius: 15%;
+  position: relative;
+  right:-768px;
+}
+.graph{
+  height: 95%;
+  width: 95%;
+  margin-left:15px;
+  margin-top:10px;
+  border-radius: 10px;
+}
+.button1:hover{
+  background-color: #283a62;
+  opacity: 0.90;
+}
 .toggle-icon:hover {
   cursor: pointer;
-  opacity: 0.85;
+  opacity: 0.90;
 }
 
 /* ConnectButton component buttons */

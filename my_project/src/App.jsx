@@ -8,6 +8,7 @@ import toggle_light from './assets/day.png';
 import SOSButton from './SOSbutton.jsx';
 import Weather1 from './Weather.jsx';
 import fileContent from './alerts_log.txt?raw'
+import graph from './assets/image.png'
 
 
 // Navigationbar component
@@ -107,8 +108,7 @@ function App() {
       {/* Historic Data Popup */}
       {isHistoricPopupVisible && (
         <Popup onClose={closePopup}>
-          <h2>Historic Data</h2>
-          <p className='historic-para'>Here’s where the historic data will be displayed.</p>
+          <img className='graph' src={graph}></img>
         </Popup>
       )}
     </div>

@@ -4,6 +4,7 @@ import React, { useRef, useState } from 'react';
 
 const ConnectButton = ({ theme, onCameraConnect, onHistoricDataClick }) => {
   const [isCameraOn, setIsCameraOn] = useState(false);
+  const [isMuseConnected, setIsMuseConnected] = useState(false); // Track Muse connection state
   const videoRef = useRef(null);
   const streamRef = useRef(null);
 
@@ -14,9 +15,10 @@ const ConnectButton = ({ theme, onCameraConnect, onHistoricDataClick }) => {
       videoRef.current.srcObject = stream;
       streamRef.current = stream;
       setIsCameraOn(true);
+      await handleMuseConnect(); // Connect to Muse as soon as camera is connected
     } catch (error) {
       console.error("Camera access error:", error);
-      alert("Failed to access the camera. Please check your permissions.");
+      // alert("Failed to access the camera. Please check your permissions.");
     }
   };
 
@@ -30,18 +32,41 @@ const ConnectButton = ({ theme, onCameraConnect, onHistoricDataClick }) => {
 
   const handleMuseConnect = async () => {
     try {
-      const response = await fetch('http://localhost:5001/start-muse-recording', {
-        method: 'GET',
-      });
+      const response = await fetch('http://localhost:5001/start-muse-recording');
+      const data = await response.json();
       if (response.ok) {
-        alert("Connected to Muse and started recording.");
+        alert(data.message);
+        setIsMuseConnected(true); // Update state on successful connection
       } else {
-        const errorData = await response.json();
-        alert(`Error connecting to Muse: ${errorData.error}`);
+        // alert(`Error connecting to Muse: ${data.message}`);
       }
     } catch (error) {
       console.error("Error connecting to Muse:", error);
-      alert("Failed to connect to Muse. Please ensure the backend is running.");
+      // alert("Failed to connect to Muse. Please ensure the backend is running.");
+    }
+  };
+
+  const handleMuseDisconnect = async () => {
+    try {
+      const response = await fetch('http://localhost:5001/stop-muse-recording');
+      const data = await response.json();
+      if (response.ok) {
+        // alert(data.message);
+        setIsMuseConnected(false); // Update state on successful disconnection
+      } else {
+        // alert(`Error disconnecting from Muse: ${data.message}`);
+      }
+    } catch (error) {
+      console.error("Error disconnecting from Muse:", error);
+      // alert("Failed to disconnect from Muse. Please ensure the backend is running.");
+    }
+  };
+
+  const handleMuseToggle = () => {
+    if (!isMuseConnected) {
+      handleMuseConnect(); // Connect to Muse
+    } else {
+      handleMuseDisconnect(); // Disconnect from Muse
     }
   };
 
@@ -62,11 +87,11 @@ const ConnectButton = ({ theme, onCameraConnect, onHistoricDataClick }) => {
         Connect to Camera
       </button>
       <button
-        onClick={handleMuseConnect} // Trigger Muse connection
+        onClick={handleMuseToggle} // Toggle Muse connection
         className="button1 text-white py-4 px-8 text-xl rounded-lg 
                bg-[#134B70] hover:bg-[#283a62] w-auto"
       >
-        Connect to Muse
+        {isMuseConnected ? "Disconnect from Muse" : "Connect to Muse"}
       </button>
 
       {isCameraOn && (
@@ -79,7 +104,9 @@ const ConnectButton = ({ theme, onCameraConnect, onHistoricDataClick }) => {
           />
           <button
             onClick={handleCameraDisconnect}
-            className={`py-2 px-4 text-lg rounded-lg mt-4 ${theme === 'light' ? 'bg-blue-500 hover:bg-blue-700' : 'bg-blue-600 hover:bg-blue-800'}`}
+            className={`py-2 px-4 text-lg rounded-lg mt-4 ${
+              theme === 'light' ? 'bg-blue-500 hover:bg-blue-700' : 'bg-blue-600 hover:bg-blue-800'
+            }`}
           >
             Disconnect Camera
           </button>

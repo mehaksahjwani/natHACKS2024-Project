@@ -9,7 +9,6 @@ from circular import WhileTrue, concentrationCall, fatigueCall
 # from database import MuseData, Session  # Import from database.py
 
 def muse():
-    print(2)
     params = BrainFlowInputParams()
     params.serial_port = 'COM6' #Change this depending on your device and OS
     board_id = 39 #Change this depending on your device
@@ -46,9 +45,7 @@ def muse():
     eeg_channels = board.get_eeg_channels(board_id)
     sampling_rate = BoardShim.get_sampling_rate(board_id)
     time.sleep(2)
-    print(3)
     while (WhileTrue):
-        print(4)
         time.sleep(0.5)
         current_data = board.get_current_board_data(128)
         current_eeg_data = current_data[eeg_channels] 
