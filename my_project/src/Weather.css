@@ -134,5 +134,9 @@
     width: 300%;
     position: absolute;
     margin-left:-850px;
-
+    color: black!important;
   }
+
+.greeting-message.dark-theme{
+  color: white;
+} 
